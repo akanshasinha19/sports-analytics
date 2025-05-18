@@ -47,10 +47,13 @@ elif video_url:
 import whisper
 import spacy
 import re
-
+def get_video_duration(video_path):
+    video_clip = VideoFileClip(video_path)
+    duration = video_clip.duration
+    video_clip.close()
+    return duration 
 left_team_goals = 0
 right_team_goals = 0
-
 if video_path:
     audio_path = video_path + ".mp3"
     try:
